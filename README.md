@@ -6,6 +6,8 @@ Test api speed periodically and save result into csv file.
 ```
 URL='http://localhost:3000?q=abc&qarr=1&qarr=2'
 CRONTAB='*/5 * * * *'
+RESULTFILENAME='apiTestResult'
+AUTH='myAuth'
 ```
 Variable         | Description          | Example
 -----------------|----------------------|------------------------

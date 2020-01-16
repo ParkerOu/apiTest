@@ -23,7 +23,6 @@ npm start
 ```
 ### Result
 ```
-duration,start,end,non2xx,avg,mean,min,max,statusOne,statusThree,statusFour,statusFive
-1.05,Wed Jan 15 2020 16:45:44 GMT+0800 (GMT+08:00),Wed Jan 15 2020 16:45:45 GMT+0800 (GMT+08:00),0,529.3,529.3,509.0,542.5,0,0,0,0
-1.04,Wed Jan 15 2020 16:45:52 GMT+0800 (GMT+08:00),Wed Jan 15 2020 16:45:53 GMT+0800 (GMT+08:00),0,519.0,519.0,497.0,533.5,0,0,0,0
+duration,startTime,endTime,non2xx,mean,std,min,max,statusOne,statusThree,statusFour,statusFive,p0_001,p0_01,p0_1,p1,p2_5,p10,p25,p50,p75,p90,p97_5,p99,p99_9,p99_99,p99_999
+1.06,2020-01-16 13:34:26,2020-01-16 13:34:27,0,357.2,7.0,338.0,363.6,0,0,0,0,338,338,338,338,338,338,357,358,361,363,363,363,363,363,363
 ```

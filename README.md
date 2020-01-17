@@ -21,6 +21,11 @@ ref: [CronTab說明](https://crontab.guru/)
 ```
 npm start
 ```
+### Deploy
+```
+npm run build
+node ./dist/index.js # pm2 start ./dist/index.js --name apiTest
+```
 ### Result
 ```
 duration,startTime,endTime,non2xx,mean,std,min,max,statusOne,statusThree,statusFour,statusFive,p0_001,p0_01,p0_1,p1,p2_5,p10,p25,p50,p75,p90,p97_5,p99,p99_9,p99_99,p99_999

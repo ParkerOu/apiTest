@@ -4,7 +4,8 @@
   "description": "test api speed periodically",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "babel-node src/index.js",
+    "build": "babel src --out-dir dist",
     "precommit": "lint-staged"
   },
   "author": "ParkerOu",
@@ -17,6 +18,12 @@
     "moment": "^2.24.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/node": "^7.0.0",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/register": "^7.0.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^4.14.0",
     "eslint-config-google": "^0.9.1",

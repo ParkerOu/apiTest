@@ -1,11 +1,11 @@
 /* eslint-disable camelcase */
 'use strict';
 require('dotenv').config();
-const autocannon = require('autocannon');
-const fs = require('fs');
-const {CronJob} = require('cron');
-const csv = require('fast-csv');
-const moment = require('moment');
+import fs from 'fs';
+import autocannon from 'autocannon';
+import {CronJob} from 'cron';
+import moment from 'moment';
+import * as csv from '@fast-csv/format';
 
 const {
     URL, CRONTAB, RESULTFILENAME, AUTH,
@@ -13,11 +13,12 @@ const {
 
 const timeFormat = 'YYYY-MM-DD HH:mm:ss';
 const resultPath = `./${RESULTFILENAME}.csv`;
-const writeStream = fs.createWriteStream(resultPath, {flags: 'a'});
+// create file if not exists
+fs.createWriteStream(resultPath, {flags: 'a'});
 
 new CronJob(CRONTAB, () => {
     const instance = autocannon({
-        url: URL, connections: 5, duration: 1, headers: {auth: AUTH},
+        url: URL, connections: 3, duration: 10, headers: {auth: AUTH},
     });
     instance.on('done', writeResults2csv);
 }).start();
@@ -48,15 +49,14 @@ function writeResults2csv(result) {
 
     const {size} = fs.statSync(resultPath);
     const writeHeaders = size ? false : true;
-    const csvStream = csv.format({
+    const opts = {
         headers: true, includeEndRowDelimiter: true, writeHeaders,
-    });
-    csvStream.pipe(writeStream).on('end', process.exit);
-    csvStream.write({
+    };
+    const results = [{
         duration, startTime, endTime, non2xx, mean, std, min, max,
         statusOne, statusThree, statusFour, statusFive,
         p0_001, p0_01, p0_1, p1, p2_5, p10, p25, p50,
         p75, p90, p97_5, p99, p99_9, p99_99, p99_999,
-    });
-    csvStream.end();
+    }];
+    csv.writeToStream(fs.createWriteStream(resultPath, {flags: 'a'}), results, opts);
 };

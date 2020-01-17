@@ -2,6 +2,7 @@ module.exports = {
     extends: ['google', 'plugin:import/errors', 'plugin:import/warnings'],
     env: {
         node: true,
+        es6: true,
         browser: true,
     },
     parser: 'babel-eslint',

@@ -5,17 +5,19 @@
   "main": "index.js",
   "scripts": {
     "start": "babel-node src/index.js",
+    "mytest": "babel-node test.js",
     "build": "babel src --out-dir dist",
     "precommit": "lint-staged"
   },
   "author": "ParkerOu",
   "license": "ISC",
   "dependencies": {
-    "autocannon": "^4.4.2",
-    "cron": "^1.7.2",
+    "autocannon": "^4.6.0",
+    "cron": "^1.8.2",
     "dotenv": "^8.2.0",
-    "fast-csv": "^4.0.2",
-    "moment": "^2.24.0"
+    "fast-csv": "^4.1.3",
+    "moment": "^2.24.0",
+    "request": "^2.88.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.2",

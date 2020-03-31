@@ -1,5 +1,5 @@
 # Purpose
-Test api speed periodically and save result into csv file.
+Test api with jwt authentication speed periodically and save result into csv file.
 # How to use it
 1. `npm i` install all npm package.<br />
 1. add `.env` file at root of directory. 
@@ -7,14 +7,18 @@ Test api speed periodically and save result into csv file.
 URL='http://localhost:3000?q=abc&qarr=1&qarr=2'
 CRONTAB='*/5 * * * *'
 RESULTFILENAME='apiTestResult'
-AUTH='myAuth'
+AUTH_URL='http://localhost:3000/auth'
+AUTH_USER='authUser'
+AUTH_PWD='authPwd'
 ```
-Variable         | Description          | Example
------------------|----------------------|------------------------
-URL              | TESTING URL          | https://github.com/
-CRONTAB          | TESTING FREQUENCY    | * * * * *
-RESULTFILENAME   | TESTING RESULT NAME  | apiTestResult
-AUTH             | API AUTH             | sj2oi.jdos.012sl.kjdx
+Variable         | Description            | Example
+-----------------|------------------------|------------------------
+URL              | TESTING URL            | https://github.com/
+CRONTAB          | TESTING FREQUENCY      | * * * * *
+RESULTFILENAME   | TESTING RESULT NAME    | apiTestResult
+AUTH_URL         | Authorization server   | http://localhost:3000/auth
+AUTH_USER        | Authorization user     | authUser
+AUTH_PWD         | Authorization password | authPwd
 
 ref: [CronTab說明](https://crontab.guru/)
 ### Start the test
